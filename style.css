@@ -1,1 +1,179 @@
+body {
+    font-family: 'Sora', sans-serif;
+    background-color: #f6f8f7;
+    color: #111318;
+    margin: 0;
+    padding: 0;
+}
 
+header {
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #dbdfe6;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+main {
+    padding: 2rem;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.left-panel, .right-panel {
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    border: 1px solid #dbdfe6;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+h2 {
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.upload-section .drop-zone {
+    border: 2px dashed #dbdfe6;
+    border-radius: 0.75rem;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    background-color: #f6f8f7;
+}
+
+.upload-section .drop-zone:hover {
+    border-color: #39E079;
+}
+
+.upload-section p {
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: bold;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.job-role-section {
+    margin-top: 1.5rem;
+}
+
+label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #6b7280;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #dbdfe6;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+}
+
+#analyze-button {
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #39E079;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#analyze-button:hover {
+    background-color: #2db865;
+}
+
+.results-section h2 {
+    margin-bottom: 1.5rem;
+}
+
+.score-card {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.score-card h3 {
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #6b7280;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.score-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #f6f8f7;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 8px solid #39E079;
+}
+
+.skills-analysis h3 {
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.skills-found h4, .skills-missing h4 {
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #6b7280;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+#skills-found-list li {
+    background-color: #e6f9ee;
+    color: #0d924f;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: bold;
+}
+
+#skills-missing-list li {
+    background-color: #fffbe6;
+    color: #b45309;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: bold;
+}
