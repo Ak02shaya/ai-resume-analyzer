@@ -33,6 +33,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    const roleSkills = {
+        'software engineer': ['JavaScript', 'React', 'Node.js', 'HTML', 'CSS', 'Python', 'SQL', 'AWS', 'Docker', 'Git'],
+        'product manager': ['Agile', 'Roadmapping', 'User Research', 'JIRA', 'Product Lifecycle Management', 'A/B Testing', 'Market Analysis'],
+        'data scientist': ['Python', 'R', 'SQL', 'TensorFlow', 'PyTorch', 'Machine Learning', 'Statistics', 'Data Visualization'],
+        'ux designer': ['Figma', 'Sketch', 'Adobe XD', 'User Research', 'Wireframing', 'Prototyping', 'Usability Testing'],
+        'default': ['Communication', 'Teamwork', 'Problem Solving', 'Microsoft Office', 'Project Management']
+    };
+
+    function getSkillsForRole(role) {
+        const lowerCaseRole = role.toLowerCase().trim();
+        let skills = roleSkills[lowerCaseRole];
+
+        // If the exact role is not found, check for keywords
+        if (!skills) {
+            const roleKeywords = Object.keys(roleSkills).find(k => lowerCaseRole.includes(k));
+            skills = roleKeywords ? roleSkills[roleKeywords] : roleSkills['default'];
+        }
+
+        // Shuffle skills for randomness
+        const shuffledSkills = [...skills].sort(() => 0.5 - Math.random());
+
+        // Split skills into found and missing, ensuring at least one of each
+        const splitPoint = Math.max(1, Math.floor(Math.random() * (shuffledSkills.length - 1)));
+        const skillsFound = shuffledSkills.slice(0, splitPoint);
+        const missingSkills = shuffledSkills.slice(splitPoint);
+
+        return { skillsFound, missingSkills };
+    }
+
     analyzeButton.addEventListener('click', () => {
         const jobRole = document.getElementById('job-role').value;
         const resumeFile = resumeFileInput.files[0];
@@ -42,10 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Simulate analysis
+        // Simulate analysis based on job role
         const score = Math.floor(Math.random() * 51) + 50; // 50-100
-        const skillsFound = ['JavaScript', 'React', 'Node.js', 'HTML', 'CSS'];
-        const missingSkills = ['Python', 'SQL', 'AWS'];
+        const { skillsFound, missingSkills } = getSkillsForRole(jobRole);
 
         updateResults(score, skillsFound, missingSkills);
     });
